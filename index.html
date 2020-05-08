@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Game</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="keywords" content="HTML, CSS, XML, JavaScript">
+        <link rel="stylesheet" type="text/css" href="styles.css">
+        <script type="text/javascript">
+
+            function rock(){
+                playerRock = true;
+            }
+
+            function paper(){
+                playerPaper = true;
+            }
+
+            function scissors(){
+                playerScissors = true;
+            }
+
+            function computerPlay(){
+                var min = 1;
+                var max = 3;
+                var randNum = Math.floor(Math.random() * (max - min + 1)) + min;
+                if (randNum==1 && playerRock==true) {
+                    document.getElementById("resultinput").textContent = "TIE!";
+                } 
+                if (randNum==2 && playerRock==true) {
+                    document.getElementById("resultinput").textContent = "YOU LOOSE!"; 
+                }
+                if (randNum==3 && playerRock==true) {
+                    document.getElementById("resultinput").textContent = "YOU WIN!"; 
+                }
+                if (randNum==1 && playerPaper==true) {
+                    document.getElementById("resultinput").textContent = "YOU WIN!";
+                }
+                if (randNum==2 && playerPaper==true) {
+                    document.getElementById("resultinput").textContent = "TIE!";
+                }
+                if (randNum==3 && playerPaper==true) {
+                    document.getElementById("resultinput").textContent = "YOU LOOSE!";
+                }
+                if (randNum==1 && playerScissors==true) {
+                    document.getElementById("resultinput").textContent = "YOU LOOSE!";
+                }
+                if (randNum==2 && playerScissors==true) {
+                    document.getElementById("resultinput").textContent = "YOU WIN!";
+                }
+                if (randNum==3 && playerScissors==true) {
+                    document.getElementById("resultinput").textContent = "TIE!";
+                }
+            }
+
+        </script>
+    </head>
+    <body>
+        <div class="options">
+            <div>
+                <input type="button" class="rockbtn" onclick="rock();computerPlay();">
+            </div>
+            <div>
+                <input type="button" class="paperbtn" onclick="rock();computerPlay();">
+            </div>
+            <div>
+                <input type="button" class="scissorsbtn" onclick="rock();computerPlay();">
+            </div>
+        </div>
+        <div class="optbox">
+            <p class="opttext">Rock</p>
+            <p class="opttext">Paper</p>
+            <p class="opttext">Scissors</p>
+        </div>
+        <div class="resultbox">
+            <p id="resultinput">?</p>
+        </div>
+    </body>
+</html>
